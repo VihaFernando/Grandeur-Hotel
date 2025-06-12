@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Hotel } from 'lucide-react';
+import { Menu, X, Sun, Moon, MapPin, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -34,8 +34,8 @@ const Header: React.FC = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg shadow-lg'
-            : 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg'
+            ? 'bg-white/50 dark:bg-slate-900/50 backdrop-blur-md shadow-lg'
+            : 'bg-white/30 dark:bg-slate-900/30 backdrop-blur-md'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
-                <Hotel className="w-6 h-6 text-white" />
+                <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h1 className="text-xl font-bold text-slate-800 dark:text-white">
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                   className={`font-medium transition-colors duration-200 ${
                     location.pathname === item.path
                       ? 'text-amber-600 dark:text-amber-400'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400'
+                      : 'text-slate-900 dark:text-white hover:text-amber-700 dark:hover:text-amber-300'
                   }`}
                 >
                   {item.name}
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white/60 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-700 backdrop-blur-lg"
+              className="md:hidden bg-white/50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-700 backdrop-blur-md"
             >
               <div className="container mx-auto px-4 py-4">
                 <nav className="flex flex-col space-y-4">
@@ -118,7 +118,7 @@ const Header: React.FC = () => {
                       className={`font-medium py-2 ${
                         location.pathname === item.path
                           ? 'text-amber-600 dark:text-amber-400'
-                          : 'text-slate-700 dark:text-slate-300'
+                          : 'text-slate-900 dark:text-white'
                       }`}
                     >
                       {item.name}
