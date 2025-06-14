@@ -29,9 +29,9 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
+      initial={{ y: 0 }} // Start at y: 0 to avoid initial shift
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full max-w-full z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/20 dark:bg-slate-900/20 backdrop-blur-xl shadow-lg border-b border-white/10 dark:border-slate-700/20'
           : 'bg-white/5 dark:bg-slate-900/5 backdrop-blur-sm'
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/10 dark:bg-slate-900/10 backdrop-blur-xl border-t border-white/10 dark:border-slate-700/20"
+            className="lg:hidden bg-white/10 dark:bg-slate-900/10 backdrop-blur-xl border-t border-white/10 dark:border-slate-700/20 w-full"
           >
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
