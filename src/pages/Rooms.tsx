@@ -219,25 +219,25 @@ const Rooms: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h1 className="text-5xl font-bold text-slate-800 dark:text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4">
             Luxury Accommodations
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto px-4">
             Discover our collection of elegantly appointed rooms and suites, each designed to provide the ultimate in comfort and luxury
           </p>
         </motion.div>
 
         {/* Rooms Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {rooms.map((room, index) => (
             <motion.div
               key={room.id}
@@ -250,7 +250,7 @@ const Rooms: React.FC = () => {
                 <img
                   src={room.image}
                   alt={room.name}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-48 sm:h-64 object-cover"
                 />
                 <div className="absolute top-4 right-4 bg-white dark:bg-slate-800 px-3 py-1 rounded-full flex items-center space-x-1">
                   <Star className="w-4 h-4 text-amber-400 fill-current" />
@@ -260,48 +260,48 @@ const Rooms: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white mb-2">
                   {room.name}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                <p className="text-slate-600 dark:text-slate-300 mb-4 text-sm sm:text-base">
                   {room.description}
                 </p>
 
                 {/* Room specs */}
-                <div className="grid grid-cols-4 gap-4 mb-4 text-center">
+                <div className="grid grid-cols-4 gap-2 sm:gap-4 mb-4 text-center">
                   <div>
-                    <Square className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                    <div className="text-sm text-slate-600 dark:text-slate-300">{room.size}m²</div>
+                    <Square className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 mx-auto mb-1" />
+                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">{room.size}m²</div>
                   </div>
                   <div>
-                    <Users className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                    <div className="text-sm text-slate-600 dark:text-slate-300">{room.capacity} guests</div>
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 mx-auto mb-1" />
+                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">{room.capacity} guests</div>
                   </div>
                   <div>
-                    <Bed className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                    <div className="text-sm text-slate-600 dark:text-slate-300">{room.beds} bed{room.beds > 1 ? 's' : ''}</div>
+                    <Bed className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 mx-auto mb-1" />
+                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">{room.beds} bed{room.beds > 1 ? 's' : ''}</div>
                   </div>
                   <div>
-                    <Bath className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                    <div className="text-sm text-slate-600 dark:text-slate-300">{room.bathrooms} bath{room.bathrooms > 1 ? 's' : ''}</div>
+                    <Bath className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 mx-auto mb-1" />
+                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">{room.bathrooms} bath{room.bathrooms > 1 ? 's' : ''}</div>
                   </div>
                 </div>
 
                 {/* Amenities */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-slate-800 dark:text-white mb-2">Key Amenities:</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <h4 className="font-semibold text-slate-800 dark:text-white mb-2 text-sm sm:text-base">Key Amenities:</h4>
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
                     {room.amenities.slice(0, 3).map((amenity, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-sm rounded-full"
+                        className="px-2 sm:px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-xs sm:text-sm rounded-full"
                       >
                         {amenity}
                       </span>
                     ))}
                     {room.amenities.length > 3 && (
-                      <span className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-full">
+                      <span className="px-2 sm:px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs sm:text-sm rounded-full">
                         +{room.amenities.length - 3} more
                       </span>
                     )}
@@ -311,24 +311,24 @@ const Rooms: React.FC = () => {
                 {/* Price and actions */}
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <span className="text-3xl font-bold text-slate-800 dark:text-white">
+                    <span className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-white">
                       ${room.price}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-300">/night</span>
+                    <span className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">/night</span>
                   </div>
                 </div>
 
-                <div className="flex space-x-3">
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                   <button
                     onClick={() => openRoomDetails(room.id)}
-                    className="flex-1 px-4 py-2 border-2 border-amber-500 text-amber-600 dark:text-amber-400 font-medium rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-all duration-200"
+                    className="flex-1 px-4 py-2 border-2 border-amber-500 text-amber-600 dark:text-amber-400 font-medium rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-all duration-200 text-sm sm:text-base"
                   >
                     View Details
                   </button>
                   <Link
                     to="/booking"
                     state={{ selectedRoom: room }}
-                    className="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-medium rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-200 shadow-lg hover:shadow-xl text-center flex items-center justify-center"
+                    className="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-medium rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-200 shadow-lg hover:shadow-xl text-center flex items-center justify-center text-sm sm:text-base"
                   >
                     <Calendar className="w-4 h-4 mr-2" />
                     Book Now
@@ -346,19 +346,19 @@ const Rooms: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-2 sm:p-4"
               onClick={closeRoomDetails}
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="bg-white dark:bg-slate-800 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-slate-800 rounded-lg w-full max-w-6xl max-h-[95vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Header */}
                 <div className="relative">
-                  <div className="relative h-80">
+                  <div className="relative h-48 sm:h-64 lg:h-80">
                     <img
                       src={selectedRoomData.gallery[currentImageIndex]}
                       alt={selectedRoomData.name}
@@ -368,19 +368,19 @@ const Rooms: React.FC = () => {
                     {/* Navigation arrows */}
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
+                      className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
                     >
-                      <ChevronLeft className="w-6 h-6" />
+                      <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
+                      className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
                     >
-                      <ChevronRight className="w-6 h-6" />
+                      <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
                     </button>
 
                     {/* Image indicators */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
                       {selectedRoomData.gallery.map((_, index) => (
                         <button
                           key={index}
@@ -396,58 +396,58 @@ const Rooms: React.FC = () => {
                   {/* Close button */}
                   <button
                     onClick={closeRoomDetails}
-                    className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
+                    className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-4 h-4 sm:w-6 sm:h-6" />
                   </button>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 space-y-4 lg:space-y-0">
                     <div>
-                      <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-2">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-white mb-2">
                         {selectedRoomData.name}
                       </h2>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
                         <div className="flex items-center space-x-1">
                           <Star className="w-5 h-5 text-amber-400 fill-current" />
                           <span className="font-medium text-slate-800 dark:text-white">
                             {selectedRoomData.rating}
                           </span>
                         </div>
-                        <span className="text-slate-600 dark:text-slate-300">•</span>
+                        <span className="hidden sm:inline text-slate-600 dark:text-slate-300">•</span>
                         <span className="text-slate-600 dark:text-slate-300">
                           {selectedRoomData.size}m² • {selectedRoomData.capacity} guests
                         </span>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-amber-600 dark:text-amber-400">
+                    <div className="text-left lg:text-right">
+                      <div className="text-2xl sm:text-3xl font-bold text-amber-600 dark:text-amber-400">
                         ${selectedRoomData.price}
                       </div>
                       <div className="text-slate-600 dark:text-slate-300">per night</div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                     {/* Left column */}
                     <div>
-                      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white mb-4">
                         About This Room
                       </h3>
-                      <p className="text-slate-600 dark:text-slate-300 mb-6">
+                      <p className="text-slate-600 dark:text-slate-300 mb-6 text-sm sm:text-base">
                         {selectedRoomData.detailedDescription}
                       </p>
 
-                      <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
+                      <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-3">
                         Room Features
                       </h4>
                       <ul className="space-y-2 mb-6">
                         {selectedRoomData.features.map((feature, index) => (
-                          <li key={index} className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                            <span className="text-slate-600 dark:text-slate-300">{feature}</span>
+                          <li key={index} className="flex items-start space-x-2">
+                            <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -455,40 +455,40 @@ const Rooms: React.FC = () => {
 
                     {/* Right column */}
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
+                      <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-3">
                         Room Specifications
                       </h4>
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="text-center p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
-                          <Square className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-                          <div className="font-semibold text-slate-800 dark:text-white">{selectedRoomData.size}m²</div>
-                          <div className="text-sm text-slate-600 dark:text-slate-300">Room Size</div>
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+                        <div className="text-center p-3 sm:p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                          <Square className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 mx-auto mb-2" />
+                          <div className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">{selectedRoomData.size}m²</div>
+                          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Room Size</div>
                         </div>
-                        <div className="text-center p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
-                          <Users className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-                          <div className="font-semibold text-slate-800 dark:text-white">{selectedRoomData.capacity}</div>
-                          <div className="text-sm text-slate-600 dark:text-slate-300">Max Guests</div>
+                        <div className="text-center p-3 sm:p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                          <Users className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 mx-auto mb-2" />
+                          <div className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">{selectedRoomData.capacity}</div>
+                          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Max Guests</div>
                         </div>
-                        <div className="text-center p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
-                          <Bed className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-                          <div className="font-semibold text-slate-800 dark:text-white">{selectedRoomData.beds}</div>
-                          <div className="text-sm text-slate-600 dark:text-slate-300">Bedroom{selectedRoomData.beds > 1 ? 's' : ''}</div>
+                        <div className="text-center p-3 sm:p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                          <Bed className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 mx-auto mb-2" />
+                          <div className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">{selectedRoomData.beds}</div>
+                          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Bedroom{selectedRoomData.beds > 1 ? 's' : ''}</div>
                         </div>
-                        <div className="text-center p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
-                          <Bath className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-                          <div className="font-semibold text-slate-800 dark:text-white">{selectedRoomData.bathrooms}</div>
-                          <div className="text-sm text-slate-600 dark:text-slate-300">Bathroom{selectedRoomData.bathrooms > 1 ? 's' : ''}</div>
+                        <div className="text-center p-3 sm:p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                          <Bath className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 mx-auto mb-2" />
+                          <div className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">{selectedRoomData.bathrooms}</div>
+                          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Bathroom{selectedRoomData.bathrooms > 1 ? 's' : ''}</div>
                         </div>
                       </div>
 
-                      <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
+                      <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-3">
                         All Amenities
                       </h4>
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <div className="flex flex-wrap gap-1 sm:gap-2 mb-6">
                         {selectedRoomData.amenities.map((amenity, index) => (
                           <span
                             key={index}
-                            className="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-sm rounded-full"
+                            className="px-2 sm:px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-xs sm:text-sm rounded-full"
                           >
                             {amenity}
                           </span>
@@ -498,7 +498,7 @@ const Rooms: React.FC = () => {
                   </div>
 
                   {/* Action buttons */}
-                  <div className="flex space-x-4 pt-6 border-t border-slate-200 dark:border-slate-700">
+                  <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-6 border-t border-slate-200 dark:border-slate-700">
                     <button
                       onClick={closeRoomDetails}
                       className="flex-1 px-6 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200"
@@ -526,19 +526,19 @@ const Rooms: React.FC = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-20 p-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg"
+          className="text-center mt-16 sm:mt-20 p-8 sm:p-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg"
         >
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Need Help Choosing?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8">
             Our concierge team is available 24/7 to help you find the perfect accommodation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-amber-600 font-semibold rounded-lg hover:bg-slate-50 transition-all duration-200">
+            <button className="px-6 sm:px-8 py-3 bg-white text-amber-600 font-semibold rounded-lg hover:bg-slate-50 transition-all duration-200">
               Call +94 11 234 5678
             </button>
-            <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-amber-600 transition-all duration-200">
+            <button className="px-6 sm:px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-amber-600 transition-all duration-200">
               Live Chat
             </button>
           </div>
